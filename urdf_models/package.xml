@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package>
+  <name>urdf_models</name>
+  <version>0.0.0</version>
+  <description>The urdf_models package</description>
+
+    <maintainer email="fadri.furrer@mavt.ethz.ch">Fadri Furrer</maintainer>
+
+    <license>ASL 2.0</license>
+
+    <url type="website">http://github.com/ethz-asl/urdf_models/wiki</url>
+    <url type="bugtracker">https://github.com/ethz-asl/urdf_models/issues</url>
+
+    <author email="fadri.furrer@mavt.ethz.ch">Fadri Furrer</author>
+
+    <buildtool_depend>catkin</buildtool_depend>
+    <build_depend>cmake_modules</build_depend>
+
+    <export>
+    </export>
+  </package>
