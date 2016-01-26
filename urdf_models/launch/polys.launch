@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<launch>
+
+  <!-- send the robot XML to param server -->
+ 
+
+  <!-- push robot_description to factory and spawn robot in gazebo -->
+  <include file="$(find urdf_models)/launch/1_poly.launch" />
+  <include file="$(find urdf_models)/launch/2_poly.launch" />
+</launch>
