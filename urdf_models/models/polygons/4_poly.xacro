@@ -28,10 +28,10 @@
   <link name="base_link_inertia">
       <inertial>
         <mass value="${mass}" />  <!-- [kg] -->
-        <origin xyz="0.0 0.0 0.0" />
-        <inertia ixx="0.000001" ixy="0.0" 		ixz="0.0"
-                			    iyy="0.000001"  iyz="0.0"
-                 								izz="0.000001" />
+        <origin xyz="-0.005615e-02 -0.005404e-02  -0.060523e-02 " />
+        <inertia ixx="0.007005e-05" ixy="0.0" 		ixz="0.0"
+                			    iyy="0.004923e-05"  iyz="0.0"
+                 								izz="0.008620e-05" />
       </inertial>
 
       <visual>
