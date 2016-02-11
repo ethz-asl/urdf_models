@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!--
+  Copyright 2016 Fadri Furrer, ASL, ETH Zurich, Switzerland
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<robot name="1_poly" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:property name="mesh_file" value="package://urdf_models/models/polygons/1_hollowed.stl" />
+  <xacro:property name="mass" value="1.0" />
+  <link name="base_link"></link>
+
+  <joint name="base_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="base_link_inertia" />
+  </joint>
+  <link name="base_link_inertia">
+      <inertial>
+        <mass value="${mass}" />  <!-- [kg] -->
+        <origin xyz="-0.045476e-02 -0.094378e-02 0.385188e-02" />
+        <inertia ixx="0.061333e-05" ixy="-0.011147e-05" ixz="-0.007462e-05"
+                			    iyy="0.080086e-05"  iyz="-0.001807e-05"
+                 								izz="0.086440e-05" />
+      </inertial>
+
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="${mesh_file}" scale="1 1 1" />
+        </geometry>
+	<material name="blue">
+	  <color rgba="0 0 .8 1"/>
+	</material>
+      </visual>
+
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="${mesh_file}" scale="1 1 1" />
+        </geometry>
+      </collision>
+    </link>
+    
+   <gazebo reference="$base_link_inertia">
+        <mu1>1.1</mu1>
+        <mu2>1.1</mu2>
+   </gazebo>
+
+</robot>
