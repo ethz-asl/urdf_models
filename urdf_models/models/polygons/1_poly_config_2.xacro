@@ -15,9 +15,9 @@
   limitations under the License.
 -->
 
-<robot name="2_poly" xmlns:xacro="http://ros.org/wiki/xacro">
-  <xacro:property name="mesh_file" value="package://urdf_models/models/polygons/2_poly_config_2.dae" />
-  <xacro:property name="mass" value="1" />
+<robot name="1_poly" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:property name="mesh_file" value="package://urdf_models/models/polygons/1_poly_config_2.dae" />
+  <xacro:property name="mass" value="1.0" />
   <link name="base_link"></link>
 
   <joint name="base_joint" type="fixed">
@@ -28,11 +28,11 @@
   <link name="base_link_inertia">
       <inertial>
         <mass value="${mass}" />  <!-- [kg] -->
-        <origin xyz=" -0.160056e-1  0.049179e-1 0.080512e-1" />
-        <inertia ixx="0.034550e-02" ixy="0.000148e-02" 		ixz="0.001628e-02"
-                			      	iyy="0.038334e-02"  	iyz="0.001259e-02"
-                 								    		izz="0.036534e-02" />
-        </inertial>
+        <origin xyz=" -0.012297e-1 -0.024539e-1  0.010432e-1 " />
+        <inertia ixx="0.073099e-2" ixy="-0.014828e-2"  ixz="-0.010476e-2"
+                			       iyy="0.099164e-2"   iyz="-0.002557e-2"
+                 									   izz=" 0.107647e-2" />
+      </inertial>
 
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
@@ -51,5 +51,10 @@
         </geometry>
       </collision>
     </link>
+    
+   <gazebo reference="$base_link_inertia">
+        <mu1>1.1</mu1>
+        <mu2>1.1</mu2>
+   </gazebo>
 
 </robot>
