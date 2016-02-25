@@ -50,6 +50,6 @@
           <mesh filename="${mesh_file}" scale="1 1 1" />
         </geometry>
       </collision>
-    </link>
+  </link>
 
 </robot>

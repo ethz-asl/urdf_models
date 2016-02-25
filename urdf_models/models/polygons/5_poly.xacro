@@ -29,9 +29,9 @@
       <inertial>
         <mass value="${mass}" />  <!-- [kg] -->
         <origin xyz="0.008764e-01 0.010792e-01 -0.014634e-01" />
-        <inertia ixx="0.002472e-02" ixy="0.0" 		ixz="0.0"
-                			    iyy="0.002012e-02"  iyz="0.0"
-                 								izz="0.003289e-02" />
+        <inertia ixx="0.002472e-02" ixy="0.0" 			ixz="0.0"
+                			    	iyy="0.002012e-02"  iyz="0.0"
+                 										izz="0.003289e-02" />
       </inertial>
 
       <visual>
@@ -56,7 +56,7 @@
         	</friction>
             
             <bounce>
-              <restitution_coefficient>10.0</restitution_coefficient>
+              <restitution_coefficient>0.1</restitution_coefficient>
             </bounce>
             <contact>
               <ode>
