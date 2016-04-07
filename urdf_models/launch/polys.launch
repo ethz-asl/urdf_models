@@ -2,7 +2,7 @@
 <launch>
 
   <!-- send the robot XML to param server -->
- 
+
 
   <!-- push robot_description to factory and spawn robot in gazebo -->
   <include file="$(find urdf_models)/launch/1_poly.launch" ns="poly1" />
@@ -10,4 +10,6 @@
   <include file="$(find urdf_models)/launch/3_poly.launch" ns="poly3" />
   <include file="$(find urdf_models)/launch/4_poly.launch" ns="poly4" />
   <include file="$(find urdf_models)/launch/5_poly.launch" ns="poly5" />
+
+
 </launch>
