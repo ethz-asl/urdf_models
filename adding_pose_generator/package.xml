@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package>
+  <name>adding_pose_generator</name>
+  <version>0.0.0</version>
+  <description>The adding_pose_generator package</description>
+
+  <author email="fadri.furrer@mavt.ethz.ch">Fadri Furrer</author>
+  <author email="yoshida@arch.ethz.ch">Yoshida Hironori</author>
+  <author email="martiwer@mavt.ethz.ch">Martin Wermelinger</author>
+  <maintainer email="martiwer@mavt.ethz.ch">Martin Wermelinger</maintainer>
+
+  <license>TODO</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>moveit_ros_planning_interface</build_depend>
+  <build_depend>gazebo_plugins</build_depend>
+  <build_depend>std_msgs</build_depend>
+
+  <run_depend>moveit_ros_planning_interface</run_depend>
+  <run_depend>gazebo_plugins</run_depend>
+  <run_depend>std_msgs</run_depend>
+
+</package>
