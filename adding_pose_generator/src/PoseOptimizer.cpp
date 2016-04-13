@@ -26,37 +26,38 @@ void PoseOptimizer::GazeboLinkCallback(const gazebo_msgs::LinkStates::ConstPtr& 
 	gazebo_link_states_ = *msg;
 }
 
+void PoseOptimizer::GazeboModelCallback(const gazebo_msgs::ModelStates::ConstPtr & msg) {
+	//ROS_INFO_STREAM("Callback: " << *msg);
+	gazebo_model_states_ = *msg;
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 PoseOptimizer::PoseOptimizer(ros::NodeHandle& nh)
 : nh_(nh)
 {
-	getGazeboLinkState_ = nh_.subscribe<gazebo_msgs::LinkStates>("/gazebo/link_states", 1000, &PoseOptimizer::GazeboLinkCallback, this);
 	executeOptServer_ = nh_.advertiseService("test_advertise", &PoseOptimizer::simpleService, this);
 	//pose_optimization_client_ = nh_.serviceClient<gazebo_msgs::SetModelState>("/gazebo/SetModelState");
 }
 
-bool PoseOptimizer::simpleService(gazebo_msgs::GetModelProperties::Request &request, gazebo_msgs::GetModelState::Response &response)
-{
-	if(request.model_name == "2_poly"){
-		ROS_INFO_STREAM("position " << response.pose.position);
-		//gazebo::physics::WorldPtr world =  gazebo::physics::Model
-		//ROS_INFO_STREAM(gazebo_link_states_.pose[0]);
-		//gazebo::physics::WorldPtr world = gazebo::physics::get_world("World");
-		//model_ = world->GetByName(request.model_name);
-
-		//ROS_INFO_STREAM(model_->GetWorldPose());
-		//ROS_INFO_STREAM(response.pose);
-	}
-	//ROS_INFO()
-	return true;
-}
-
-
-
-////////////////////////////////////////////////////////////////////////////////
 PoseOptimizer::~PoseOptimizer()
 {
+}
 
+bool PoseOptimizer::simpleService(std_srvs::Empty::Request& request, std_srvs::Empty::Response& response)
+{
+	ros::Subscriber subscribe_gazebo = nh_.subscribe<gazebo_msgs::ModelStates>("/gazebo/model_states", 1000, &PoseOptimizer::GazeboModelCallback, this);
+	ROS_INFO_STREAM(gazebo_model_states_.name.size());
+
+	getGazeboLinkState_ = nh_.subscribe<gazebo_msgs::LinkStates>("/gazebo/link_states", 1000, &PoseOptimizer::GazeboLinkCallback, this);
+	ROS_INFO_STREAM(gazebo_link_states_);
+	//gazebo::physics::WorldPtr world =  gazebo::physics::Model
+	//ROS_INFO_STREAM(gazebo_link_states_.pose[0]);
+	//gazebo::physics::WorldPtr world = gazebo::physics::get_world("World");
+	//model_ = world->GetByName(request.model_name);
+
+	//ROS_INFO_STREAM(model_->GetWorldPose());
+	//ROS_INFO_STREAM(response.pose);
+	return true;
 }
 
 }
