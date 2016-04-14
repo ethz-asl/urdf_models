@@ -15,6 +15,7 @@ public:
 	void Load(physics::WorldPtr _world, sdf::ElementPtr _sdf);
 
 private:
+
 };
 
 }

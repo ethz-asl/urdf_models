@@ -2,7 +2,7 @@
 
 #include <gazebo/physics/World.hh>
 #include <gazebo/physics/PhysicsIface.hh>
-
+#include <vector>
 #include <pluginlib/class_list_macros.h>
 
 using gazebo::GazeboPluginLoader;
@@ -10,12 +10,27 @@ using gazebo::GazeboPluginLoader;
 
 void GazeboPluginLoader::Load(physics::WorldPtr _world, sdf::ElementPtr _sdf)
 {
-	//ros::init();
-	ros::NodeHandle node_handle("~");
-	ros::AsyncSpinner spinner(1);
-	spinner.start();
-	ros::waitForShutdown();
+
+    if (!ros::isInitialized())
+    {
+      ROS_FATAL_STREAM("A ROS node for Gazebo has not been initialized, unable to load plugin. "
+        << "Load the Gazebo system plugin 'libgazebo_ros_api_plugin.so' in the gazebo_ros package)");
+      return;
+    }
+
+
+//	ros::NodeHandle node_handle("~");
+//	ros::AsyncSpinner spinner(1);
+//	spinner.start();
+//	ros::waitForShutdown();
+
+
+	//std::vector<gazebo::physics::Model> models_ = _world->GetModels();
+
+    ROS_INFO("Hello World!");
+	//ROS_INFO_STREAM(models_);
 }
+
 
 
 //
