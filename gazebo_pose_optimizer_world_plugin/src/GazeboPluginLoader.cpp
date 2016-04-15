@@ -18,19 +18,18 @@ void GazeboPluginLoader::Load(physics::WorldPtr _world, sdf::ElementPtr _sdf)
       return;
     }
 
-
-//	ros::NodeHandle node_handle("~");
-//	ros::AsyncSpinner spinner(1);
-//	spinner.start();
-//	ros::waitForShutdown();
-
-
-	//std::vector<gazebo::physics::Model> models_ = _world->GetModels();
-
+    this->world_ = _world;
+    rosnode_ = ros::NodeHandle("~");
     ROS_INFO("Hello World!");
-	//ROS_INFO_STREAM(models_);
-}
 
+    // initialize subscriber to joint commands
+    ros::SubscribeOptions ops = ros::SubscribeOptions::create<sensor_msgs::JointState>(
+                joint_command_topic, 1,
+                boost::bind(&FreeFloatingControlPlugin::JointCommandCallBack, this, _1),
+                ros::VoidPtr(), &callback_queue_);
+    joint_command_subscriber_ = rosnode_.subscribe(ops);
+    joint_command_received_ = false;
+}
 
 
 //
