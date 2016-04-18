@@ -63,14 +63,16 @@ include_directories(
   ${GAZEBO_INCLUDE_DIRS}
 )
 
-add_library(gazebo_pose_optimizer_world_plugin
-    src/GazeboPluginLoader.cpp
-)
-
+add_library(gazebo_pose_optimizer_world_plugin src/GazeboPluginLoader.cpp)
 add_dependencies(gazebo_pose_optimizer_world_plugin ${catkin_EXPORTED_TARGETS})
-
 target_link_libraries(gazebo_pose_optimizer_world_plugin
    ${GAZEBO_LIBRARIES}
+   ${catkin_LIBRARIES}
+)
+
+add_executable(gazebo_request_object_info src/object_info_request.cpp)
+add_dependencies(gazebo_request_object_info ${catkin_EXPORTED_TARGETS})
+target_link_libraries(gazebo_request_object_info
    ${catkin_LIBRARIES}
 )
 

@@ -4,6 +4,7 @@
 #include <ros/ros.h>
 #include <gazebo/gazebo.hh>
 #include <gazebo/common/Plugin.hh>
+#include <gazebo/physics/Model.hh>
 
 #include <object_msgs/Object.h>
 #include <object_msgs/ObjectInfo.h>
@@ -30,6 +31,8 @@ private:
   bool requestObject(object_msgs::ObjectInfo::Request  &req, object_msgs::ObjectInfo::Response &res);
   void advertEvent(const ros::TimerEvent& e);
   void onWorldUpdate();
+  ObjectMsg getObject(physics::ModelPtr& model, bool include_shape);
+
 
 
 private:
