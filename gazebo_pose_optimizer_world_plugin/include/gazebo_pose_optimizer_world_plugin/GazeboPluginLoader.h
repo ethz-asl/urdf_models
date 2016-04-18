@@ -31,7 +31,7 @@ public:
 
 private:
   bool requestObject(object_msgs::ObjectInfo::Request  &req, object_msgs::ObjectInfo::Response &res);
-  bool requestStatic(motion_execution_msgs::SetObjectStatic::Request  &req, object_msgs::ObjectInfo::Response &res);
+  bool requestStatic(motion_execution_msgs::SetObjectStatic::Request  &req, motion_execution_msgs::SetObjectStatic::Response &res);
 
   void advertEvent(const ros::TimerEvent& e);
   void onWorldUpdate();
