@@ -2,6 +2,7 @@
 #define GAZEBO_GAZEBOPLUGINLOADER_H
 
 #include <ros/ros.h>
+#include <gazebo_msgs/LinkStates.h>
 #include <gazebo/gazebo.hh>
 #include <gazebo/common/Plugin.hh>
 #include <gazebo/physics/Model.hh>
@@ -28,7 +29,8 @@ public:
 	//GazeboPluginLoader();
   GazeboPluginLoader();
 	void Load(physics::WorldPtr _world, sdf::ElementPtr _sdf);
-
+	//bool service_callback(gazebo_msgs::LinkStates::std_msgs::Empty::ConstPtr  &req);
+	void Update();
 private:
   bool requestObject(object_msgs::ObjectInfo::Request  &req, object_msgs::ObjectInfo::Response &res);
   bool requestStatic(motion_execution_msgs::SetObjectStatic::Request  &req, object_msgs::ObjectInfo::Response &res);
@@ -57,6 +59,16 @@ private:
 
   std::vector<ObjectMsg> lastGeneratedObjects;
   bool reGenerateObjects;
+
+    ros::NodeHandle rosnode_;
+    ros::CallbackQueue callback_queue_;
+    physics::WorldPtr world_;
+    physics::ModelPtr model_;
+    event::ConnectionPtr update_event_;
+    ros::ServiceServer switch_service_;
+
+    physics::LinkPtr body_;
+    ros::Subscriber joint_command_subscriber_;
 
 };
 
