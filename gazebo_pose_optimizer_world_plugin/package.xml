@@ -17,14 +17,27 @@
   <!-- Commonly used license strings: -->
   <!--   BSD, MIT, Boost Software License, GPLv2, GPLv3, LGPLv2.1, LGPLv3 -->
   <license>GPLv3</license>
-  
+
   <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>geometry_msgs</build_depend>
   <build_depend>roscpp</build_depend>
+  <build_depend>gazebo_world_plugin_loader</build_depend>
+  <build_depend>shape_msgs</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>object_msgs</build_depend>
+  <build_depend>object_msgs_tools</build_depend>
+  <build_depend>eigen_conversions</build_depend>
+  <run_depend>gazebo_world_plugin_loader</run_depend>
+  <run_depend>object_msgs</run_depend>
+  <run_depend>object_msgs_tools</run_depend>
+  <run_depend>eigen_conversions</run_depend>
+  <run_depend>geometry_msgs</run_depend>
   <run_depend>roscpp</run_depend>
+  <run_depend>shape_msgs</run_depend>
+  <run_depend>std_msgs</run_depend>
 
   <run_depend>gazebo_ros</run_depend>
   <build_depend>gazebo_ros</build_depend>
-
   <!-- The export tag contains other, unspecified, tags -->
   <export>
     <!-- You can specify that this package is a metapackage here: -->

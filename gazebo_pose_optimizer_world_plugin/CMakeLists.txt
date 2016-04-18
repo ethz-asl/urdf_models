@@ -7,8 +7,15 @@ project(gazebo_pose_optimizer_world_plugin)
 find_package(
   catkin
   REQUIRED COMPONENTS
+  gazebo_world_plugin_loader
+  geometry_msgs
   roscpp
+  shape_msgs
+  std_msgs
   gazebo_ros
+  object_msgs
+  object_msgs_tools
+  eigen_conversions
 )
 
 find_package(gazebo REQUIRED)
@@ -30,7 +37,16 @@ find_package(gazebo REQUIRED)
 catkin_package(
 #  INCLUDE_DIRS include
   LIBRARIES gazebo_pose_optimizer_world_plugin
-  CATKIN_DEPENDS roscpp gazebo_ros
+  CATKIN_DEPENDS
+    gazebo_world_plugin_loader
+    geometry_msgs
+    roscpp
+    shape_msgs
+    std_msgs
+    gazebo_ros
+    object_msgs
+    object_msgs_tools
+    eigen_conversions
 #  DEPENDS system_lib
 )
 
