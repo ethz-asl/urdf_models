@@ -16,6 +16,7 @@ find_package(
   object_msgs
   object_msgs_tools
   eigen_conversions
+  motion_execution_msgs
 )
 
 find_package(gazebo REQUIRED)
@@ -47,6 +48,7 @@ catkin_package(
     object_msgs
     object_msgs_tools
     eigen_conversions
+    motion_execution_msgs
 #  DEPENDS system_lib
 )
 

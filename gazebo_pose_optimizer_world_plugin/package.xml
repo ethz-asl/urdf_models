@@ -27,6 +27,9 @@
   <build_depend>object_msgs</build_depend>
   <build_depend>object_msgs_tools</build_depend>
   <build_depend>eigen_conversions</build_depend>
+  <build_depend>motion_execution_msgs</build_depend>
+  <build_depend>gazebo_ros</build_depend>
+
   <run_depend>gazebo_world_plugin_loader</run_depend>
   <run_depend>object_msgs</run_depend>
   <run_depend>object_msgs_tools</run_depend>
@@ -35,9 +38,8 @@
   <run_depend>roscpp</run_depend>
   <run_depend>shape_msgs</run_depend>
   <run_depend>std_msgs</run_depend>
-
+  <run_depend>motion_execution_msgs</run_depend>
   <run_depend>gazebo_ros</run_depend>
-  <build_depend>gazebo_ros</build_depend>
   <!-- The export tag contains other, unspecified, tags -->
   <export>
     <!-- You can specify that this package is a metapackage here: -->

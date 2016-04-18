@@ -39,7 +39,7 @@ GazeboPluginLoader::GazeboPluginLoader() :
 void GazeboPluginLoader::Load(physics::WorldPtr _world, sdf::ElementPtr _sdf)
 {
 
-  ros::NodeHandle node("/pose_generator");
+  ros::NodeHandle node("~");
 
     if (!ros::isInitialized())
     {
@@ -67,14 +67,26 @@ void GazeboPluginLoader::Load(physics::WorldPtr _world, sdf::ElementPtr _sdf)
         object_pub = node.advertise<GazeboPluginLoader::ObjectMsg>(WORLD_OBJECTS_TOPIC, OBJECT_QUEUE_SIZE);
     }
 
+
     ros::Rate rate(UPDATE_RATE);
 
-    ROS_INFO("Hello World!");
     world=_world;
 
     request_object_srv = node.advertiseService(REQUEST_OBJECTS_TOPIC, &GazeboPluginLoader::requestObject,this);
+    request_object_static = node.advertiseService("world/object_static", &GazeboPluginLoader::requestStatic,this);
 
 	//ROS_INFO_STREAM(models_);
+}
+
+bool GazeboPluginLoader::requestStatic(motion_execution_msgs::SetObjectStatic::Request  &req, object_msgs::ObjectInfo::Response &res)
+{
+  std::string modelName=req.name;
+  physics::ModelPtr model=world->GetModel(modelName);
+  model-> SetStatic(req.set_static);
+
+  if(req.set_static) ROS_INFO("model %s was set with static", modelName.c_str());
+  else ROS_INFO("model %s was set with active", modelName.c_str());
+  return true;
 }
 
 bool GazeboPluginLoader::requestObject(object_msgs::ObjectInfo::Request &req, object_msgs::ObjectInfo::Response &res) {
@@ -91,7 +103,6 @@ bool GazeboPluginLoader::requestObject(object_msgs::ObjectInfo::Request &req, ob
 
     res.error_code=object_msgs::ObjectInfo::Response::NO_ERROR;
     res.success=true;
-    res.object =
     res.object=getObject(model,false);
     ROS_INFO("Received service request for object info!");
     return true;

@@ -11,6 +11,8 @@
 #include <object_msgs/ObjectInfoRequest.h>
 #include <object_msgs/ObjectInfoResponse.h>
 
+#include <motion_execution_msgs/SetObjectStatic.h>
+
 #include <shape_msgs/SolidPrimitive.h>
 #include <geometry_msgs/Pose.h>
 
@@ -29,6 +31,8 @@ public:
 
 private:
   bool requestObject(object_msgs::ObjectInfo::Request  &req, object_msgs::ObjectInfo::Response &res);
+  bool requestStatic(motion_execution_msgs::SetObjectStatic::Request  &req, object_msgs::ObjectInfo::Response &res);
+
   void advertEvent(const ros::TimerEvent& e);
   void onWorldUpdate();
   ObjectMsg getObject(physics::ModelPtr& model, bool include_shape);
@@ -46,6 +50,8 @@ private:
   event::ConnectionPtr update_connection;
   ros::Publisher object_pub;
   ros::ServiceServer request_object_srv;
+  ros::ServiceServer request_object_static;
+
 
   ros::Timer publishTimer;
 

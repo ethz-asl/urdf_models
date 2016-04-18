@@ -7,7 +7,7 @@
 #include <object_msgs/Object.h>
 #include <iostream>
 
-#define DEFAULT_REQUEST_OBJECTS_TOPIC "world/request_object"
+#define DEFAULT_REQUEST_OBJECTS_TOPIC "gazebo/world/request_object"
 
 int main (int argc, char **argv)
 {
@@ -22,7 +22,7 @@ int main (int argc, char **argv)
 	ros::NodeHandle n;
 	std::string REQUEST_OBJECTS_TOPIC;
 
-	n.param<std::string>("pose_generator/request_object_service", REQUEST_OBJECTS_TOPIC, DEFAULT_REQUEST_OBJECTS_TOPIC);
+	n.param<std::string>("gazebo/request_object_service", REQUEST_OBJECTS_TOPIC, DEFAULT_REQUEST_OBJECTS_TOPIC);
 	ROS_INFO("Got objects topic name: <%s>", REQUEST_OBJECTS_TOPIC.c_str());
 
 	ros::ServiceClient client = n.serviceClient<object_msgs::ObjectInfo>(REQUEST_OBJECTS_TOPIC);
