@@ -51,14 +51,14 @@
         </geometry>
       </collision>
   </link>
-  
+
   <gazebo reference="base_link">
       <mu1 value="1.2"/>
       <mu2 value="1.1"/>
       <kp  value="5000000.0" />
       <kd  value="1.0" />
       <fdir1 value="1 0 0"/>
-      <collision> 
+      <collision>
 	        <surface>
 	          <bounce>
 	            <restitution_coefficient> 0.1 </restitution_coefficient>
@@ -69,14 +69,14 @@
 		            <max_vel>0.1</max_vel>
 		            <min_depth>0.001</min_depth>
 		          </ode>
-		      </contact>	          
+		      </contact>
 	        </surface>
-	   </collision>      	
+	   </collision>
       <material name="Gray">
 	    <color rgba="0.8 0.8 0.8 1"/>
 	  </material>
       <turnGravityOff>false</turnGravityOff>
   </gazebo>
-  
+
 
 </robot>
