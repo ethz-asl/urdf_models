@@ -15,8 +15,8 @@
   limitations under the License.
 -->
 
-<robot name="stone" xmlns:xacro="http://ros.org/wiki/xacro">
-  <xacro:property name="mesh_file" value="package://urdf_models/models/stone/stone.dae" />
+<robot name="stone_2" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:property name="mesh_file" value="package://urdf_models/models/stone_2/mesh/stone_2.stl" />
   <xacro:property name="mass" value="1.0" />
   <link name="base_link"></link>
 
@@ -25,13 +25,14 @@
     <parent link="base_link" />
     <child link="base_link_inertia" />
   </joint>
+
   <link name="base_link_inertia">
       <inertial>
         <mass value="${mass}" />  <!-- [kg] -->
-        <origin xyz="0 0 0.12" />
-        <inertia ixx="1" ixy="0.0" ixz="0.0"
-                 iyy="1" iyz="0.0"
-                 izz="1" />
+        <origin xyz="0.172716e-01 0.036106e-01 0.106380e-01" />
+        <inertia ixx="0.063821e-02" ixy="0.0" 		ixz="0.0"
+                			    iyy="0.105141e-02"  iyz="0.0"
+                 								izz="0.110947e-02" />
       </inertial>
 
       <visual>
@@ -39,6 +40,9 @@
         <geometry>
           <mesh filename="${mesh_file}" scale="1 1 1" />
         </geometry>
+		<material name="Gray">
+	 	 <color rgba="0.8 0.8 0.8 1"/>
+		</material>
       </visual>
 
       <collision>
@@ -47,6 +51,32 @@
           <mesh filename="${mesh_file}" scale="1 1 1" />
         </geometry>
       </collision>
-    </link>
+  </link>
+
+  <gazebo reference="base_link">
+      <mu1 value="1.2"/>
+      <mu2 value="1.1"/>
+      <kp  value="5000000.0" />
+      <kd  value="1.0" />
+      <fdir1 value="1 0 0"/>
+      <collision>
+	        <surface>
+	          <bounce>
+	            <restitution_coefficient> 0.1 </restitution_coefficient>
+	            <threshold>0.</threshold>
+	          </bounce>
+		      <contact>
+		          <ode>
+		            <max_vel>0.1</max_vel>
+		            <min_depth>0.001</min_depth>
+		          </ode>
+		      </contact>
+	        </surface>
+	   </collision>
+      <material name="Gray">
+	    <color rgba="0.8 0.8 0.8 1"/>
+	  </material>
+      <turnGravityOff>false</turnGravityOff>
+  </gazebo>
 
 </robot>

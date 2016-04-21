@@ -15,8 +15,8 @@
   limitations under the License.
 -->
 
-<robot name="2_poly" xmlns:xacro="http://ros.org/wiki/xacro">
-  <xacro:property name="mesh_file" value="package://urdf_models/models/stone/3D_models_2.dae" />
+<robot name="stone" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:property name="mesh_file" value="package://urdf_models/models/stone/mesh/stone.dae" />
   <xacro:property name="mass" value="1.0" />
   <link name="base_link"></link>
 
@@ -39,9 +39,6 @@
         <geometry>
           <mesh filename="${mesh_file}" scale="1 1 1" />
         </geometry>
-	<material name="blue">
-	  <color rgba="0 0 .8 1"/>
-	</material>
       </visual>
 
       <collision>
