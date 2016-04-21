@@ -13,7 +13,6 @@
 #include <gazebo/common/Plugin.hh>
 #include <gazebo/common/Events.hh>
 #include <gazebo/common/common.hh>
-#include <gazebo/rendering/UserCamera.hh>
 
 #include <algorithm>
 #include <assert.h>

@@ -5,8 +5,6 @@
 #include <gazebo/gazebo.hh>
 #include <gazebo/common/Plugin.hh>
 #include <gazebo/physics/Model.hh>
-#include <gazebo/rendering/rendering.hh>
-
 
 #include <object_msgs/Object.h>
 #include <object_msgs/ObjectInfo.h>
@@ -50,8 +48,6 @@ private:
   physics::WorldPtr world;
   physics::ModelPtr model_;
 
-  rendering::UserCameraPtr camera_;
-  rendering::ScenePtr scene_;
 
 
   event::ConnectionPtr update_connection;
