@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <launch>
   <arg name="model_name" default="5_poly"/>
-  <arg name="model" default="$(find urdf_models)/models/$(arg model_name)/$(arg model_name).xacro"/>
+  <arg name="model" default="$(find urdf_models)/models/$(arg model_name)/urdf/$(arg model_name).xacro"/>
   <arg name="tf_prefix" default="$(optenv ROS_NAMESPACE)"/>
   <arg name="x" default="0.14"/>
   <arg name="y" default="-0.23"/>
@@ -11,7 +11,7 @@
   <!-- send the robot XML to param server -->
   <param name="$(arg model_name)/robot_description" command="$(find xacro)/xacro.py '$(arg model)'"/>
   <param name="tf_prefix" type="string" value="$(arg tf_prefix)" />
-  
+
   <!-- push robot_description to factory and spawn robot in gazebo -->
   <node name="spawn_$(arg model_name)" pkg="gazebo_ros" type="spawn_model"
 	   args="-param robot_description
@@ -22,5 +22,5 @@
 	         -model $(arg model_name)"
 	   respawn="false" output="screen" ns="$(arg model_name)">
   </node>
-  
+
 </launch>
