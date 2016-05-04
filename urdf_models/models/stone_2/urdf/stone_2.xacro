@@ -16,7 +16,7 @@
 -->
 
 <robot name="stone_2" xmlns:xacro="http://ros.org/wiki/xacro">
-  <xacro:property name="mesh_file" value="package://urdf_models/models/stone_2/mesh/stone_2.stl" />
+  <xacro:property name="mesh_file" value="package://urdf_models/models/stone_2/mesh/stone_2_2.stl" />
   <xacro:property name="mass" value="1.0" />
   <link name="base_link"></link>
 
