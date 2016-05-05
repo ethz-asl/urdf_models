@@ -15,9 +15,9 @@
   limitations under the License.
 -->
 
-<robot name="5_poly" xmlns:xacro="http://ros.org/wiki/xacro">
-  <xacro:property name="mesh_file" value="package://urdf_models/models/polygons/5_poly.stl" />
-  <xacro:property name="mass" value="1.0" />
+<robot name="2_poly" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:property name="mesh_file" value="package://urdf_models/models/2_poly/mesh/2_poly.stl" />
+  <xacro:property name="mass" value="1" />
   <link name="base_link"></link>
 
   <joint name="base_joint" type="fixed">
@@ -28,18 +28,20 @@
   <link name="base_link_inertia">
       <inertial>
         <mass value="${mass}" />  <!-- [kg] -->
-        <origin xyz="0.008764e-01 0.010792e-01 -0.014634e-01" />
-        <inertia ixx="0.002472e-01" ixy="0.0" 			ixz="0.0"
-                			    	iyy="0.002012e-01"  iyz="0.0"
-                 										izz="0.003289e-01" />
-      </inertial>
+        <origin xyz=" -0.160056e-1  0.049179e-1 0.080512e-1" />
+        <inertia ixx="0.034550e-02" ixy="0.000148e-02" 		ixz="0.001628e-02"
+                			      	iyy="0.038334e-02"  	iyz="0.001259e-02"
+                 								    		izz="0.036534e-02" />
+        </inertial>
 
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
           <mesh filename="${mesh_file}" scale="1 1 1" />
         </geometry>
-
+	<material name="blue">
+	  <color rgba="0 0 .8 1"/>
+	</material>
       </visual>
 
       <collision>
@@ -48,15 +50,15 @@
           <mesh filename="${mesh_file}" scale="1 1 1" />
         </geometry>
       </collision>
-    </link>
-    
+  </link>
+
   <gazebo reference="base_link">
       <mu1 value="1.2"/>
       <mu2 value="1.1"/>
       <kp  value="5000000.0" />
       <kd  value="1.0" />
       <fdir1 value="1 0 0"/>
-      <collision> 
+      <collision>
 	        <surface>
 	          <bounce>
 	            <restitution_coefficient> 0.1 </restitution_coefficient>
@@ -67,15 +69,14 @@
 		            <max_vel>0.1</max_vel>
 		            <min_depth>0.001</min_depth>
 		          </ode>
-		      </contact>	          
+		      </contact>
 	        </surface>
-	   </collision>      	
+	   </collision>
       <material name="Gray">
 	    <color rgba="0.8 0.8 0.8 1"/>
 	  </material>
       <turnGravityOff>false</turnGravityOff>
   </gazebo>
 
-    
 
 </robot>

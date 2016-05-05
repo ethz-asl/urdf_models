@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- Spawn the different stones. -->
+  <include file="$(find urdf_models)/launch/spawn_object.launch" ns="stone1">
+    <arg name="model_name" value="stone_1"/>
+    <arg name="x" value="0.0"/>
+    <arg name="y" value="0.0"/>
+    <arg name="z" value="0.84"/>
+  </include>
+  <include file="$(find urdf_models)/launch/spawn_object.launch" ns="stone2">
+    <arg name="model_name" value="stone_2"/>
+    <arg name="x" value="0.14"/>
+    <arg name="y" value="0.0"/>
+    <arg name="z" value="0.84"/>
+  </include>
+  <include file="$(find urdf_models)/launch/spawn_object.launch" ns="stone3">
+    <arg name="model_name" value="stone_3"/>
+    <arg name="x" value="0.28"/>
+    <arg name="y" value="0.0"/>
+    <arg name="z" value="0.84"/>
+  </include>
+</launch>
