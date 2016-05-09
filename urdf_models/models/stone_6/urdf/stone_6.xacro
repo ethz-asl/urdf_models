@@ -15,8 +15,8 @@
   limitations under the License.
 -->
 
-<robot name="stone_1" xmlns:xacro="http://ros.org/wiki/xacro">
-  <xacro:property name="mesh_file" value="package://urdf_models/models/stone_1/mesh/stone_1.stl" />
+<robot name="stone_6" xmlns:xacro="http://ros.org/wiki/xacro">
+<xacro:property name="mesh_file" value="package://urdf_models/models/stone_6/mesh/stone_6.stl" />
   <xacro:property name="mass" value="1.0" />
   <link name="base_link"></link>
 

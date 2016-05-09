@@ -9,13 +9,31 @@
   </include>
   <include file="$(find urdf_models)/launch/spawn_object.launch" ns="stone2">
     <arg name="model_name" value="stone_2"/>
-    <arg name="x" value="0.14"/>
+    <arg name="x" value="0.15"/>
     <arg name="y" value="0.0"/>
     <arg name="z" value="0.84"/>
   </include>
   <include file="$(find urdf_models)/launch/spawn_object.launch" ns="stone3">
     <arg name="model_name" value="stone_3"/>
-    <arg name="x" value="0.28"/>
+    <arg name="x" value="0.30"/>
+    <arg name="y" value="0.0"/>
+    <arg name="z" value="0.84"/>
+  </include>
+  <include file="$(find urdf_models)/launch/spawn_object.launch" ns="stone4">
+    <arg name="model_name" value="stone_4"/>
+    <arg name="x" value="0.45"/>
+    <arg name="y" value="0.0"/>
+    <arg name="z" value="0.84"/>
+  </include>
+  <include file="$(find urdf_models)/launch/spawn_object.launch" ns="stone5">
+    <arg name="model_name" value="stone_5"/>
+    <arg name="x" value="0.60"/>
+    <arg name="y" value="0.0"/>
+    <arg name="z" value="0.84"/>
+  </include>
+  <include file="$(find urdf_models)/launch/spawn_object.launch" ns="stone6">
+    <arg name="model_name" value="stone_6"/>
+    <arg name="x" value="0.75"/>
     <arg name="y" value="0.0"/>
     <arg name="z" value="0.84"/>
   </include>
