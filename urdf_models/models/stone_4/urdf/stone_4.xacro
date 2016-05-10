@@ -25,29 +25,30 @@
     <parent link="base_link" />
     <child link="base_link_inertia" />
   </joint>
+
   <link name="base_link_inertia">
-  <inertial>
-    <mass value="${mass}" />  <!-- [kg] -->
-    <origin xyz="-0.0029634 0.0067405 0.0403623" />
-    <inertia ixx="0.023458e-02" ixy="-0.002390e-02" ixz="0.004260e-02"
-                                iyy="0.030342e-02"  iyz="0.002545e-02"
-                                                    izz="0.033413e-02" />
-   </inertial>
+    <inertial>
+      <mass value="${mass}" />  <!-- [kg] -->
+      <origin xyz="-0.000019e-1 0.000016e-1 -0.000054e-1" />
+      <inertia ixx="0.007451e-02" ixy="0.002706e-02" ixz="0.000231e-02"
+                                iyy="0.012215e-02"  iyz="-0.001176e-02"
+                                                    izz="0.013797e-02" />
+    </inertial>
 
-      <visual>
-        <origin xyz="0 0 0" rpy="0 0 0" />
-        <geometry>
-          <mesh filename="${mesh_file}" scale="1 1 1" />
-        </geometry>
-      </visual>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="${mesh_file}" scale="1 1 1" />
+      </geometry>
+    </visual>
 
-      <collision>
-        <origin xyz="0 0 0" rpy="0 0 0" />
-        <geometry>
-          <mesh filename="${mesh_file}" scale="1 1 1" />
-        </geometry>
-      </collision>
-    </link>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="${mesh_file}" scale="1 1 1" />
+      </geometry>
+    </collision>
+  </link>
 
     <gazebo reference="base_link">
         <mu1 value="2.2"/>

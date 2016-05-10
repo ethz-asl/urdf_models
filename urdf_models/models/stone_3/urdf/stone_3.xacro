@@ -29,20 +29,20 @@
   <link name="base_link_inertia">
       <inertial>
         <mass value="${mass}" />  <!-- [kg] -->
-        <origin xyz="-0.276797e-01 0.786830e-01 0.457372e-01" />
-       <inertia ixx="0.008036e-02"  ixy="0.000346e-02"  ixz="-0.000609e-02"
-                                    iyy="0.013250e-02"  iyz="0.000933e-02"
-                                                        izz="0.013387e-02" />
+        <origin xyz=" 0.000056e-1 0.000026e-1 0.000159e-1" />
+       <inertia ixx="0.005936e-02"  ixy="-0.001673e-02"  ixz="0.00102e-02"
+                                    iyy="0.008784e-02"  iyz="0.001319e-02"
+                                                        izz="0.010867e-02" />
       </inertial>
 
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
-        <geometry>
-          <mesh filename="${mesh_file}" scale="1 1 1" />
-        </geometry>
-		<material name="Gray">
-	 	 <color rgba="0.8 0.8 0.8 1"/>
-		</material>
+          <geometry>
+            <mesh filename="${mesh_file}" scale="1 1 1" />
+          </geometry>
+		      <material name="Gray">
+	 	        <color rgba="0.8 0.8 0.8 1"/>
+		      </material>
       </visual>
 
       <collision>
