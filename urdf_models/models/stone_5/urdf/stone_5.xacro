@@ -15,8 +15,8 @@
   limitations under the License.
 -->
 
-<robot name="stone_1" xmlns:xacro="http://ros.org/wiki/xacro">
-  <xacro:property name="mesh_file" value="package://urdf_models/models/stone_1/mesh/stone_1.stl" />
+<robot name="stone_5" xmlns:xacro="http://ros.org/wiki/xacro">
+<xacro:property name="mesh_file" value="package://urdf_models/models/stone_5/mesh/stone_5.stl" />
   <xacro:property name="mass" value="1.0" />
   <link name="base_link"></link>
 
@@ -28,13 +28,11 @@
   <link name="base_link_inertia">
   <inertial>
     <mass value="${mass}" />  <!-- [kg] -->
-    <origin xyz="-0.0000142 0.0000139 0.0000031" />
-    <inertia ixx="0.008166e-02" ixy="-0.003668e-02" ixz="-0.000031e-02"
-                                iyy="0.020183e-02"  iyz="0.000657e-02"
-                                                    izz="0.024189e-02" />
+    <origin xyz="0.000209e-1 0.000129e-1 0.000045e-1" />
+    <inertia ixx="0.005520e-02" ixy="-0.001326e-02" ixz="0.000610e-02"
+                                iyy="0.006123e-02"  iyz="-0.001059e-02"
+                                                    izz="0.009342e-02" />
    </inertial>
-
-
 
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />

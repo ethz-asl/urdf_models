@@ -1,13 +1,34 @@
 <?xml version="1.0"?>
 <launch>
-
-  <!-- send the robot XML to param server -->
- 
-
-  <!-- push robot_description to factory and spawn robot in gazebo -->
-  <include file="$(find urdf_models)/launch/1_poly.launch" ns="poly1" />
-  <include file="$(find urdf_models)/launch/2_poly.launch" ns="poly2" />
-  <include file="$(find urdf_models)/launch/3_poly.launch" ns="poly3" />
-  <include file="$(find urdf_models)/launch/4_poly.launch" ns="poly4" />
-  <include file="$(find urdf_models)/launch/5_poly.launch" ns="poly5" />
+  <!-- Spawn five objects. -->
+  <include file="$(find urdf_models)/launch/spawn_object.launch" ns="poly1">
+    <arg name="model_name" value="1_poly"/>
+    <arg name="x" value="0.0"/>
+    <arg name="y" value="0.0"/>
+    <arg name="z" value="0.84"/>
+  </include>
+  <include file="$(find urdf_models)/launch/spawn_object.launch" ns="poly2">
+    <arg name="model_name" value="2_poly"/>
+    <arg name="x" value="0.2"/>
+    <arg name="y" value="0.0"/>
+    <arg name="z" value="0.84"/>
+  </include>
+  <include file="$(find urdf_models)/launch/spawn_object.launch" ns="poly3">
+    <arg name="model_name" value="3_poly"/>
+    <arg name="x" value="0.4"/>
+    <arg name="y" value="0.0"/>
+    <arg name="z" value="0.84"/>
+  </include>
+  <include file="$(find urdf_models)/launch/spawn_object.launch" ns="poly4">
+    <arg name="model_name" value="4_poly"/>
+    <arg name="x" value="0.6"/>
+    <arg name="y" value="0.0"/>
+    <arg name="z" value="0.84"/>
+  </include>
+  <include file="$(find urdf_models)/launch/spawn_object.launch" ns="poly5">
+    <arg name="model_name" value="5_poly"/>
+    <arg name="x" value="0.8"/>
+    <arg name="y" value="0.0"/>
+    <arg name="z" value="0.84"/>
+  </include>
 </launch>
