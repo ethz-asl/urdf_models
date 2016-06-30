@@ -62,7 +62,7 @@
       <collision>
 	        <surface>
 	          <bounce>
-	            <restitution_coefficient> 0.1 </restitution_coefficient>
+	            <restitution_coefficient> 10 </restitution_coefficient>
 	            <threshold>0.</threshold>
 	          </bounce>
 		      <contact>

@@ -16,7 +16,7 @@
 -->
 
 <robot name="stone_2" xmlns:xacro="http://ros.org/wiki/xacro">
-  <xacro:property name="mesh_file" value="package://urdf_models/models/stone_2/mesh/stone_2.stl" />
+  <xacro:property name="mesh_file" value="package://urdf_models/models/stone_2/mesh/stone_2.dae" />
   <xacro:property name="mass" value="1.0" />
   <link name="base_link"></link>
 
@@ -60,18 +60,18 @@
       <kd  value="1.0" />
       <fdir1 value="1 0 0"/>
       <collision>
-	        <surface>
+	      <surface>
 	          <bounce>
-	            <restitution_coefficient> 0.1 </restitution_coefficient>
+	            <restitution_coefficient> 0.0 </restitution_coefficient>
 	            <threshold>0.</threshold>
 	          </bounce>
-		      <contact>
+		        <contact>
 		          <ode>
-		            <max_vel>0.1</max_vel>
+		            <max_vel>10</max_vel>
 		            <min_depth>0.001</min_depth>
 		          </ode>
-		      </contact>
-	        </surface>
+		        </contact>
+	      </surface>
 	   </collision>
       <material name="Gray">
 	    <color rgba="0.8 0.8 0.8 1"/>
