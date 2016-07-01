@@ -51,8 +51,8 @@
   </link>
 
     <gazebo reference="base_link">
-        <mu1 value="0.5"/>
-        <mu2 value="0.5"/>
+        <mu1 value="0.1"/>
+        <mu2 value="0.1"/>
         <kp  value="5000000.0" />
         <kd  value="1.0" />
         <fdir1 value="1 0 0"/>
