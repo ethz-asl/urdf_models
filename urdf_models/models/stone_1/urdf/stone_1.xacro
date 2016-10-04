@@ -18,7 +18,15 @@
 <robot name="stone_1" xmlns:xacro="http://ros.org/wiki/xacro">
   <xacro:property name="mesh_file" value="package://urdf_models/models/stone_1/mesh/stone_1.dae" />
   <xacro:property name="mass" value="1.0" />
-  <link name="base_link"></link>
+  <link name="base_link">
+    <inertial>
+   	  <mass value="${mass}" />  <!-- [kg] -->
+   	  <origin xyz="-0.0000142 0.0000139 0.0000031" />
+   	  <inertia ixx="0.08166e-02" ixy="-0.03668e-02" ixz="-0.00031e-02"
+                                  iyy="0.20183e-02"  iyz="0.00657e-02"
+                                                      izz="0.24189e-02" />
+  	 </inertial>
+  </link>
 
   <joint name="base_joint" type="fixed">
     <origin xyz="0 0 0" rpy="0 0 0" />
@@ -27,13 +35,6 @@
   </joint>
 
   <link name="base_link_inertia">
-     <inertial>
-    	<mass value="${mass}" />  <!-- [kg] -->
-    	<origin xyz="-0.0000142 0.0000139 0.0000031" />
-    	<inertia ixx="0.008166e-02" ixy="-0.003668e-02" ixz="-0.000031e-02"
-                                iyy="0.020183e-02"  iyz="0.000657e-02"
-                                                    izz="0.024189e-02" />
-   	 </inertial>
   	 <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
@@ -50,29 +51,30 @@
   </link>
 
 
-    <gazebo reference="base_link">
-        <mu1 value="0.1"/>
-        <mu2 value="0.1"/>
-        <kp  value="5000000.0" />
-        <kd  value="1.0" />
-        <fdir1 value="1 0 0"/>
-        <collision>
-            <surface>
-              <bounce>
-                <restitution_coefficient> 0.0 </restitution_coefficient>
-                <threshold>0.</threshold>
-              </bounce>
-            <contact>
-                <ode>
-                  <max_vel>10</max_vel>
-                  <min_depth>0.001</min_depth>
-                </ode>
-            </contact>
-            </surface>
-       </collision>
-
-        <turnGravityOff>false</turnGravityOff>
-    </gazebo>
+  <gazebo reference="base_link_inertia">
+    <mu1 value="0.1"/>
+    <mu2 value="0.1"/>
+    <kp  value="5000000.0" />
+    <kd  value="1.0" />
+    <fdir1 value="1 0 0"/>
+    <collision>
+    <surface>
+      <bounce>
+        <restitution_coefficient>0.1</restitution_coefficient>
+        <threshold>0.</threshold>
+      </bounce>
+      <contact>
+        <ode>
+          <max_vel>0</max_vel>
+          <min_depth>0.001</min_depth>
+        </ode>
+      </contact>
+    </surface>
+    </collision>
+    <material name="Gray">
+      <color rgba="0.8 0.8 0.8 1"/>
+    </material>
+  </gazebo>
 
 
 
