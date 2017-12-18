@@ -1,0 +1,39 @@
+<?xml version="1.0" ?> 
+<robot name="002_master_chef_can">
+  <link name="002_master_chef_can_link">
+    <inertial>
+      <origin xyz="0 0 0" />
+      <mass value="0.414" />
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="file:////home/tianlu/catkin_ws/src/urdf_models/urdf_models/models/002_master_chef_can_google_512k/mesh/nontextured.stl" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="file:////home/tianlu/catkin_ws/src/urdf_models/urdf_models/models/002_master_chef_can_google_512k/mesh/nontextured.stl" />
+      </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>1.0</mu>
+            <mu2>1.0</mu2>
+	  </ode>
+        </friction>
+        <contact>
+          <ode>
+            <kp>5000000.0</kp>
+            <kd>1.0</kd>
+          </ode>
+        </contact>
+      </surface>
+    </collision>
+  </link>
+  <gazebo reference="002_master_chef_can">
+    <material>Gazebo/Red</material>
+  </gazebo>
+</robot>

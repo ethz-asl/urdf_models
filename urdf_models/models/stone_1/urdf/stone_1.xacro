@@ -1,13 +1,10 @@
 <?xml version="1.0"?>
 <!--
   Copyright 2016 Fadri Furrer, ASL, ETH Zurich, Switzerland
-
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
   You may obtain a copy of the License at
-
   http://www.apache.org/licenses/LICENSE-2.0
-
   Unless required by applicable law or agreed to in writing, software
   distributed under the License is distributed on an "AS IS" BASIS,
   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -17,7 +14,7 @@
 
 <robot name="stone_1" xmlns:xacro="http://ros.org/wiki/xacro">
   <xacro:property name="mesh_file" value="package://urdf_models/models/stone_1/mesh/stone_1.dae" />
-  <xacro:property name="mass" value="1.0" />
+  <xacro:property name="mass" value="0.6" />
   <link name="base_link">
     <inertial>
    	  <mass value="${mass}" />  <!-- [kg] -->
@@ -25,7 +22,7 @@
    	  <inertia ixx="0.08166e-02" ixy="-0.03668e-02" ixz="-0.00031e-02"
                                   iyy="0.20183e-02"  iyz="0.00657e-02"
                                                       izz="0.24189e-02" />
-  	 </inertial>
+	 </inertial>
   </link>
 
   <joint name="base_joint" type="fixed">
@@ -52,8 +49,8 @@
 
 
   <gazebo reference="base_link_inertia">
-    <mu1 value="0.1"/>
-    <mu2 value="0.1"/>
+    <mu1 value="10.0"/>
+    <mu2 value="10.0"/>
     <kp  value="5000000.0" />
     <kd  value="1.0" />
     <fdir1 value="1 0 0"/>

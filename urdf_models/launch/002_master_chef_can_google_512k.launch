@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="model_name" default="002_master_chef_can_google_512k"/>
+  <arg name="model" default="$(find urdf_models)/models/$(arg model_name)/urdf/$(arg model_name).urdf"/>
+  <arg name="tf_prefix" default="$(optenv ROS_NAMESPACE)"/>
+  <arg name="x" default="0.60"/>
+  <arg name="y" default="0.0"/>
+  <arg name="z" default="0.8"/>
+  <arg name="roll"   default="0.0"/>
+  <arg name="pitch"  default="0.0"/>
+  <arg name="yaw"    default="0.0"/>
+  <arg name="prefix" default="" />
+
+  <!-- send the robot XML to param server -->
+  <group ns="huskanypulator">
+  <param name="$(arg model_name)_description" command="$(find xacro)/xacro.py '$(arg model)'"/>
+  <param name="tf_prefix" type="string" value="$(arg tf_prefix)" />
+
+  <!-- push robot_description to factory and spawn robot in gazebo -->
+
+  <node name="spawn_$(arg model_name)" pkg="gazebo_ros" type="spawn_model"
+	   args="-urdf
+	         -param $(arg model_name)_description
+	         -x $(arg x)
+	         -y $(arg y)
+	         -z $(arg z)
+	         -R $(arg roll)
+	         -P $(arg pitch)
+	         -Y $(arg yaw)
+	         -model $(arg model_name)
+                 -gazebo_namespace /huskanypulator/gazebo"
+	   respawn="false" output="screen">
+  </node>
+  </group>
+
+</launch>
