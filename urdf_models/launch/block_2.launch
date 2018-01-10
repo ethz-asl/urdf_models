@@ -3,7 +3,7 @@
   <arg name="model_name" default="block_2"/>
   <arg name="model" default="$(find urdf_models)/models/$(arg model_name)/urdf/$(arg model_name).urdf"/>
   <arg name="tf_prefix" default="$(optenv ROS_NAMESPACE)"/>
-  <arg name="x" default="0.58"/>
+  <arg name="x" default="0.57"/>
   <arg name="y" default="0.06"/>
   <arg name="z" default="0.8"/>
   <arg name="roll"   default="0.0"/>
